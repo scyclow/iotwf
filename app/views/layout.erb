@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- 
+    normalize.css removes cross-browser differences in defaults, e.g.,
+    differences in how form elements appear between Firefox and IE
+    See: http://necolas.github.com/normalize.css/
+  -->
+  <link rel="stylesheet" href="/css/normalize.css">
+  <!--
+    application.css is where you put your styles
+  -->
+  <link rel="stylesheet" href="/css/application.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/js/application.js"></script>
+
+  <title></title>
+</head>
+<header>
+  <a href="/" class="home-link">Index</a>
+  
+  <ul>
+    <% if @user %>
+      <li>
+      <form class="logout" action="/user" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit">Logout</button>
+      </form>
+      </li>
+      <li><a href="/user">User Page</a></li>
+    <% else %>
+      <li><a href="/user/login">Log In</a></li>
+      <li><a href="/user/new">Create Account</a></li>
+    <% end %>
+  </ul>
+
+</header>
+<body>
+  <%= yield %>
+</body>
+</html>

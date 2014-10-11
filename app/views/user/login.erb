@@ -1,0 +1,17 @@
+<div class="container">
+
+	<% if @error%>
+    <ul>
+      <li><%= @error %></li>
+    </ul>
+  <% end %>
+
+  <form name="login_user" action="/login" method="POST">
+  	<input type="text" name="username" placeholder="Username">
+  	<br>
+  	<input type="password" name="password" placeholder="Password">
+  	<br>
+  	<input type="submit" value="Login">
+  </form>
+
+</div>
