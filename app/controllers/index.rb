@@ -27,5 +27,12 @@ get '/' do
 end
 
 post '/pipes/:id' do |id|
+	pipe = Pipe.find(id)
+
+	pipe.update(a: params["A"],b: params["B"], c:params["c"],)
+
+	# if params["A"] > _
+	# 	pipe.break
+	# end
 
 end
