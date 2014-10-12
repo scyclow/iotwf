@@ -1,5 +1,7 @@
 require 'sinatra/cross_origin'
 require 'json'
+require 'net/http'
+
 before do   
    enable :cross_origin
 end
@@ -26,5 +28,6 @@ get '/' do
   end
 end
 
+post '/pipes/:id' do |id|
 
-# post '/'
+end
