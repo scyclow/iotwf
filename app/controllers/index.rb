@@ -1,7 +1,9 @@
 require 'sinatra/cross_origin'
+require 'json'
 before do   
    enable :cross_origin
 end
+
 
 get '/' do
 	@pipe1 = Pipe.find(1)
@@ -14,9 +16,13 @@ get '/' do
 		data[pipe.id] = pipe.to_hash
 	end
 
-	respond_to do |format|
-    format.json { data.to_json }
-    format.html { erb :index }
+	puts JSON.pretty_generate(request.env)
+
+	if request.xhr?
+		puts data.to_json
+    data.to_json
+  else
+    erb :index
   end
 end
 
