@@ -7,6 +7,7 @@ gem 'pg'
 # Sinatra driver
 gem 'sinatra'
 gem 'sinatra-contrib'
+gem "sinatra-cross_origin", "~> 0.3.1"
 
 # Use Thin for our web server
 gem 'thin'
@@ -20,6 +21,7 @@ gem 'bcrypt'
 gem 'shotgun'
 
 gem 'pry'
+
 
 group :test do
   gem 'faker'
