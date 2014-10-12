@@ -1,6 +1,6 @@
 class CreatePipes < ActiveRecord::Migration
   def change
-  	create_table :pipes do |t|
+  	create_tables :pipes do |t|
   		t.boolean :working, default: true
   		t.boolean :flowing, default: true
   		t.integer :a

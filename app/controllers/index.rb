@@ -1,5 +1,7 @@
 require 'sinatra/cross_origin'
 require 'json'
+require 'net/http'
+
 before do   
    enable :cross_origin
 end
@@ -24,5 +26,13 @@ get '/' do
   end
 end
 
+post '/pipes/:id' do |id|
+	pipe = Pipe.find(id)
 
-# post '/'
+	pipe.update(a: params["A"],b: params["B"], c:params["c"],)
+
+	# if params["A"] > _
+	# 	pipe.break
+	# end
+
+end
