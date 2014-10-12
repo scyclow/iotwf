@@ -1,9 +1,9 @@
-# before do   
-#    headers 'Access-Control-Allow-Origin' => '*', 
-#            'Access-Control-Allow-Methods' => ['OPTIONS', 'GET', 'POST']  
-# end
-
+require 'sinatra/cross_origin'
 require 'json'
+before do   
+   enable :cross_origin
+end
+
 
 get '/' do
 	@pipe1 = Pipe.find(1)
