@@ -27,10 +27,11 @@ $(document).ready(function() {
 		$.ajax({
 			url: 'localhost:9393', 
 			success: function(data) {		
-		},
+				console.log("in function for changing pipe")
+			},
 		dataType: 'json'
 	});
-	}, 30000);
+	}, 1000);
 
   // This is called after the document has loaded in its entirety
   // This guarantees that any elements we bind to will exist on the page
