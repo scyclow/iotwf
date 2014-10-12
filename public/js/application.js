@@ -10,7 +10,6 @@ $(document).ready(function() {
 		this.repair = function() {
 			this.$htmlElement.html("_");
 		};
-
 	};
 
 	var pipesHTML = document.getElementsByClassName("pipe");
@@ -23,7 +22,15 @@ $(document).ready(function() {
 		var $pipeElement = $("#" + pipesHTML[i].id);
 		pipes.push(new Pipe(pipeNum, $pipeElement));
 	};
-	debugger;
+
+	setInterval(function() {
+		$.ajax({
+			url: 'localhost:9393', 
+			success: function(data) {		
+		},
+		dataType: 'json'
+	});
+	}, 30000);
 
   // This is called after the document has loaded in its entirety
   // This guarantees that any elements we bind to will exist on the page
