@@ -18,8 +18,6 @@ get '/' do
 		data[pipe.id] = pipe.to_hash
 	end
 
-	puts JSON.pretty_generate(request.env)
-
 	if request.xhr?
 		puts data.to_json
     data.to_json

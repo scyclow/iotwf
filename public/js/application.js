@@ -5,9 +5,11 @@ $(document).ready(function() {
 		this.pipeId = id;
 		this.$htmlElement = htmlElement;
 		this.break = function() {
+			this.broken = true;
 			this.$htmlElement.html("X");
 		};
 		this.repair = function() {
+			this.broken = false;
 			this.$htmlElement.html("_");
 		};
 	};
@@ -23,11 +25,19 @@ $(document).ready(function() {
 		pipes.push(new Pipe(pipeNum, $pipeElement));
 	};
 
+
 	setInterval(function() {
 		$.ajax({
-			url: 'localhost:9393', 
-			success: function(data) {		
-				console.log("in function for changing pipe")
+			url: '/', 
+			success: function(data) {	
+				for(var i=1; i <= pipes.length; i++) {
+					if(data[i]['working'] === true && pipes[i-1].broken === true){
+						pipes[i-1].repair();
+					};
+					if(data[i]['working'] === false && pipes[i-1].broken === false) {
+						pipes[i-1].break();
+					};
+				};
 			},
 		dataType: 'json'
 	});
